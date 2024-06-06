@@ -17,11 +17,11 @@
                 <td>{{ $element->id }}</td>
                 <td>{{ $element->title }}</td>
                 <td class="d-none d-xl-table-cell">{{ $element->created }}</td>
-                <td class="d-none d-lg-table-cell">{{ $element->categories }}</td>
+                <td class="d-none d-lg-table-cell">{{ $element->type->name ?? 'No Category' }}</td>
                 <td class="{{ Route::currentRouteName() === 'admin.projects.index' ? '' : 'd-none' }}">
                     <div class="d-flex justify-content-center align-items-center">
                         <!-- Amministration Actions -->
-                        <a href="#" class="table-icon p-3 m-1 open-modal-info" data-bs-toggle="modal" data-bs-target="#staticBackdropInfo" data-title="{{ $element->title }}" data-description="{{ $element->description }}" data-created="{{ $element->created }}" data-categories="{{ $element->categories }}">
+                        <a href="#" class="table-icon p-3 m-1 open-modal-info" data-bs-toggle="modal" data-bs-target="#staticBackdropInfo" data-title="{{ $element->title }}" data-description="{{ $element->description }}" data-created="{{ $element->created }}" data-categories="{{ $element->type->name ?? 'No Category' }}">
                             <div class="icon-container">
                                 <i class="fas fa-info-circle"></i>
                             </div>
@@ -47,4 +47,3 @@
     </tbody>
 </table>
 @include('partials.modal-delete')
-

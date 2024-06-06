@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
 const image = document.getElementById("uploadImage");
 
 //se esiste nella pagina

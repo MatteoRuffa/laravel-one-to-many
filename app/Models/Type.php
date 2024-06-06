@@ -23,6 +23,5 @@ class Type extends Model
             $count++;
         }
         return $slug;
-    }
-    
+    }  
 }

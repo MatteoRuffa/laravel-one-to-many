@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Project;
 
 class TypeController extends Controller
 {
@@ -12,7 +14,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -36,8 +39,10 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        $categoryName = $type->name;
+        return view('admin.types.show', compact('type', 'categoryName'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -61,5 +66,14 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         //
+    }
+    public function getCategoryName($type_id)
+    {
+        $category = Type::find($type_id);
+        if ($category) {
+            return response()->json(['name' => $category->name]);
+        } else {
+            return response()->json(['error' => 'Category not found'], 404);
+        }
     }
 }

@@ -8,6 +8,7 @@
                 <p>Description: {{ $project->description }}</p>
                 <p>created: {{ $project->created }}</p>
                 <p>categories: {{ $project->categories }}</p>
+                <p>type_id: {{ $project->type_id }}</p>
                 <div class="link d-flex align-items-center justify-content-start">
                     <a href="{{ route('projects.edit', ['project' => $project->id]) }}" class="update-link p-4">
                         <i class="fa-solid fa-gear"></i>

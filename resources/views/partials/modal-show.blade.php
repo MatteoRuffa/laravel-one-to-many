@@ -17,6 +17,7 @@
                 <p id="modalDescriptionInfo"></p>
                 <p id="modalCreatedInfo"></p>
                 <p id="modalCategoriesInfo"></p>
+                <p id="modaltype_idInfo"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
