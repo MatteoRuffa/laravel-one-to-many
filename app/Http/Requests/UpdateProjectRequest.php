@@ -25,6 +25,7 @@ class UpdateProjectRequest extends FormRequest
             'title' => 'required|max:255',
             'description' => 'nullable',
             'created' => 'required|date_format:Y-m-d',
+            'type_id' => 'required|exists:types,id',
             'categories' => 'required|max:255',
             'image_url' => 'nullable|image',
         ];
