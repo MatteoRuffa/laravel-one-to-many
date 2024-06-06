@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+        return view("admin.projects.create", compact("types"));
     }
 
     /**
@@ -89,9 +91,9 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
-    {
-        $project->delete();
-        return redirect()->route('admin.projects.index')->with('message', $project->title . ' has been successfully deleted');
-    }
+    // public function destroy(Project $project)
+    // {
+    //     $project->delete();
+    //     return redirect()->route('admin.projects.index')->with('message', $project->title . ' has been successfully deleted');
+    // }
 }

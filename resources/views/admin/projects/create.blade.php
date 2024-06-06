@@ -6,8 +6,8 @@
     <section class="container py-5">
 
 
-        <div class="container rounded-2 hype-shadow-white p-5 background-gradient-color">
-            <h1 class="hype-text-shadow  fw-bolder text-center ">Add a Project</h1>
+        <div class="container">
+            <h1 class=" fw-bolder text-center ">Add a Project</h1>
 
             <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data" novalidate>
                 @csrf
@@ -39,11 +39,25 @@
                     @enderror
                 </div>
 
+                <div class="mb-3 @error('type_id') @enderror">
+                    <label for="type_id" class="form-label">Project Type</label>
+                    <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id" required>
+                        <option value="">Select a type</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                                {{ $type->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('type_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="mb-3 @error('categories') @enderror">
-                    <label for="categories" class="form-label ">Project Categories</label>
+                    <label for="categories" class="form-label">Project Categories</label>
                     <input type="text" class="form-control @error('categories') is-invalid @enderror"
-                        id="categories" name="categories" value="{{ old('categories') }}" required maxlength="255"
-                        minlength="3">
+                        id="categories" name="categories" value="{{ old('categories') }}" required maxlength="255" minlength="3">
                     @error('categories')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
