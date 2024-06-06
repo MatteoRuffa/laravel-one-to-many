@@ -7,7 +7,7 @@
     @csrf
     @method('PUT')
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label for="title">Title</label>
         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
             value="{{ $project->title }}" required>
@@ -16,7 +16,7 @@
         @enderror
     </div>
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label for="description">Description</label>
         <textarea class="form-control @error('description') is-invalid @enderror" id="description"
             name="description">{{ $project->description }}</textarea>
@@ -33,7 +33,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div> -->
-    <div class="mb-3 @error('image_url') @enderror d-flex gap-5 align-items-center">
+    <div class="my-3 @error('image_url') @enderror d-flex gap-5 align-items-center">
         <div class="w-25 text-center">
             <img id="uploadPreview" class="w-100" width="100" src="{{asset('image/placeholder.png')}}">
         </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label for="created">Created</label>
         <input type="text" class="form-control @error('created') is-invalid @enderror" id="created" name="created"
             value="{{ $project->created }}" required>
@@ -56,11 +56,24 @@
         @enderror
     </div>
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label for="categories">Categories</label>
         <input type="text" class="form-control @error('categories') is-invalid @enderror" id="categories"
             name="categories" value="{{ $project->categories }}">
         @error('categories')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group my-3">
+        <label for="type_id">Type</label>
+        <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id" required>
+            <option value="">Select Type</option>
+            @foreach($types as $type)
+                <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+            @endforeach
+        </select>
+        @error('type_id')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
