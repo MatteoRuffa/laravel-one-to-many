@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "security",
+        "slug": "security"
+    },
+    {
+        "id": 2,
+        "name": "database",
+        "slug": "database"
+    },
+    {
+        "id":  3,
+        "name": "design",
+        "slug": "design"
+    },
+    {
+        "id":  4,
+        "name": "back-end",
+        "slug": "back-end"
+    },
+    {
+        "id": 5,
+        "name": "front-end",
+        "slug": "front-end"
+    },
+    {
+        "id": 6,
+        "name": "full-stack",
+        "slug": "full-stack"
+    },
+    {
+        "id": 7,
+        "name": "mobile",
+        "slug": "mobile"
+    },
+    {
+        "id": 8,
+        "name": "devops",
+        "slug": "devops"
+    }
+]
