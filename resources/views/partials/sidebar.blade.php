@@ -1,15 +1,14 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#">Portfolio</a>
+    </button>
+    <div class="logo_cortese px-3">
+        <img src="{{ asset('image/logoCortese.jpeg') }}" alt="" class="rounded-circle">
+    </div>
+    @include('partials.header')
     
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <a class="navbar-brand" href="#">Portfolio</a>
-            </button>
-            <div class="logo_cortese px-3">
-                <img src="{{asset('image/logoCortese.jpeg')}}" alt="" class="rounded-circle">
-            </div>
-            @include('partials.header')
-        
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Portfolio</h5>
@@ -18,22 +17,26 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active{{Route::currentRouteName() == 'admin.dashboard' ? 'active' : ''}}" 
-            href="{{route('admin.dashboard')}}" aria-current="page" >Dasboard</a>
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}" 
+               href="{{ route('admin.dashboard') }}" aria-current="page">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {Route::currentRouteName() == 'admin.posts.index' ? 'active' : ''}}" 
-            href="{{route('admin.projects.index')}}">Project</a>
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }}" 
+               href="{{ route('admin.projects.index') }}">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.types.index' ? 'active' : '' }}" 
+               href="{{ route('admin.types.index') }}">Types</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Carpet
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li>
-                <!-- <hr class="dropdown-divider"> -->
+                <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>

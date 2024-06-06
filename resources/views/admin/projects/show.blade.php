@@ -1,4 +1,4 @@
-<div class="container show">
+<!-- <div class="container show">
         <div class="d-flex p-3">
             <div class="img-show p-3">
                 <img src="" alt="{{ $project->title }}">
@@ -20,5 +20,5 @@
             </div>
         </div>
     </div>
-@include('partials.modal-delete')
+@include('partials.modal-delete') -->
 {{-- @include('admin.project.show') --}}

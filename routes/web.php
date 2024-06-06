@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('projects', ProjectController::class);
     Route::get('/admin/projects/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');
-    Route::resource('types', TypeController::class)->parameters(['types' => 'slug']);
+    Route::resource('types', TypeController::class);
     // Route::get('/categories/{type_id}', [TypeController::class, 'getCategoryName']);
 });
 

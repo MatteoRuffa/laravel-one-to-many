@@ -10,8 +10,8 @@
                 {{ session()->get('message') }}
             </div>
         @endif
-        @include('partials.table', ['elements' => $type])
-        {{$projects->links('vendor.pagination.bootstrap-5')}}
+        @include('partials.table', ['elements' => $types, 'elementName' => 'type'])
+        {{--$projects->links('vendor.pagination.bootstrap-5')--}}
     </section>
     
 @endsection

@@ -39,10 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const title = this.getAttribute('data-title');
             const description = this.getAttribute('data-description');
             const created = this.getAttribute('data-created');
+            const categoryName = this.getAttribute('data-categoryName'); 
             const categories = this.getAttribute('data-categories');
 
             document.getElementById('modalTitleInfo').innerHTML = `<strong>Title:</strong> ${title}`;
-            document.getElementById('modalDescriptionInfo').innerHTML = `<strong>Description:</strong> ${description}`;
+            document.getElementById('modalDescriptionInfo').innerHTML = `<strong>Description:</strong> ${description || categories}`;
             document.getElementById('modalCreatedInfo').innerHTML = `<strong>Created at:</strong> ${created}`;
             document.getElementById('modalCategoriesInfo').innerHTML = `<strong>Category:</strong> ${categories}`;
 
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 
 
 
