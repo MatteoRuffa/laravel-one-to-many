@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 
 
 class TypeController extends Controller
@@ -60,15 +61,23 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, $id)
     {
-        //
+        $type_modified =  Type::findOrFail($id);
+        $form_data = $request->validated();
+
+        if ($type_modified->title != $form_data["name"]) {
+            $form_data["slug"] =  Type::generateSlug($form_data["name"]);
+        }
+        $type_modified->fill($form_data);
+        $type_modified->update();
+        return redirect()->route("admin.types.index")->with('message', "type (id:{$type_modified->id}): {$type_modified->name} modified successfully");
     }
 
     /**

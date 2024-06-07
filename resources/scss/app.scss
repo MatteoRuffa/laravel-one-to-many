@@ -147,7 +147,7 @@ body {
 main {
     // background-color: $mr-text-light;
     margin-top: 100px;    
-    height: 90vh;
+    // height: 100vh;
     #dashboard {
         .card-header {
             background-color: $mr-text-dark;
@@ -160,6 +160,7 @@ main {
 #mr-table {
     border-radius: 10px;
     overflow: hidden;
+    padding-bottom: 60px;
     .table-icon {
         font-size: 2rem;
         color: $mr-color-contrast;

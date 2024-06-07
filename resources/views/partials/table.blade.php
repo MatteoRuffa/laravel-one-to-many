@@ -31,6 +31,7 @@
                 <i class="fas fa-pencil-alt"></i>
             </div>
         </a>
+
         <form id="delete-form-{{ $element->id }}" method="POST">
             @csrf
             @method('DELETE')
