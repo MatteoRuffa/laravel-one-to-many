@@ -4,7 +4,7 @@
 @section('content')
     <section class="my-5">
         <h1 class=" m-3">All types</h1>
-        <a role="button" class="btn btn-add mb-3" href="{{ route('admin.projects.create') }}">Add a types</a>
+        <a role="button" class="btn btn-add mb-3" href="{{ route('admin.types.create') }}">Add a types</a>
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}

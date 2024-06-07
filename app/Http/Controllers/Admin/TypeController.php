@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Type;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreTypeRequest;
+
 
 class TypeController extends Controller
 {
@@ -23,15 +27,22 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        $form_data["slug"] =  Type::generateSlug($form_data["name"]);
+        
+        $new_type = new Type();
+        $new_type->fill($form_data);
+        $new_type->save();
+        return redirect()->route("admin.types.index")->with('message', $new_type->name . ' has been successfully created');;
+        // $new_type->slug
     }
 
     /**
@@ -65,7 +76,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('message', $type->name . ' has been successfully deleted');
     }
     public function getCategoryName($type_id)
     {
