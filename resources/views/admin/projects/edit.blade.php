@@ -7,7 +7,7 @@
     @csrf
     @method('PUT')
 
-    <div class="form-group my-3">
+    <div class="form-group my-3 fs-5 fw-medium">
         <label for="title">Title</label>
         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
             value="{{ $project->title }}" required>
@@ -16,7 +16,7 @@
         @enderror
     </div>
 
-    <div class="form-group my-3">
+    <div class="form-group my-3 fs-5 fw-medium">
         <label for="description">Description</label>
         <textarea class="form-control @error('description') is-invalid @enderror" id="description"
             name="description">{{ $project->description }}</textarea>
@@ -38,7 +38,7 @@
             <img id="uploadPreview" class="w-100" width="100" src="{{asset('image/placeholder.png')}}">
         </div>
         <div class="w-75">
-            <label for="uploadImage" class="form-label ">Image</label>
+            <label for="uploadImage" class="form-label fs-5 fw-medium">Image</label>
             <input type="file" accept="image/*" class="form-control @error('image_url') is-invalid @enderror"
                 id="uploadImage" name="image_url" value="{{ old('image_url') }}" required >
             @error('image_url')
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group my-3">
-        <label for="created">Created</label>
+        <label for="created" class="fs-5 fw-medium">Created</label>
         <input type="text" class="form-control @error('created') is-invalid @enderror" id="created" name="created"
             value="{{ $project->created }}" required>
         @error('created')
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group my-3">
-        <label for="categories">Categories</label>
+        <label for="categories" class="fs-5 fw-medium">Categories</label>
         <input type="text" class="form-control @error('categories') is-invalid @enderror" id="categories"
             name="categories" value="{{ $project->categories }}">
         @error('categories')
@@ -66,7 +66,7 @@
     </div>
 
     <div class="form-group my-3">
-        <label for="type_id">Type</label>
+        <label for="type_id" class="fs-5 fw-medium">Type</label>
         <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id" required>
             <option value="">Select Type</option>
             @foreach($types as $type)

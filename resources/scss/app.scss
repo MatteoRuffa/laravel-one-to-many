@@ -49,6 +49,26 @@ body {
     }
 }
 
+.nav-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-right: 1.5rem; 
+
+    .fa-bell {
+        font-size: 1.5rem; 
+    }
+
+    .badge-notification {
+        position: absolute;
+        top: 0.2rem; 
+        right: 0;
+        font-size: 0.75rem; 
+        // padding: 0.25em 0.4em; 
+        // border-radius: 0.75rem; 
+    }
+}
+
 // buttons and various
 .btn {
     background-color: $mr-color-contrast;
@@ -72,6 +92,9 @@ body {
         background-color: transparent;
         border-color: transparent;
         color: transparent;
+        i {
+            color: $mr-icon;
+        }
     }
     &:hover {
         background-color: $mr-bg-dark;
@@ -87,6 +110,10 @@ body {
 }
 .btn-link {
     color: white;
+}
+
+.table-icon {
+    color: $mr-icon!important;
 }
 
 .form-control:focus {

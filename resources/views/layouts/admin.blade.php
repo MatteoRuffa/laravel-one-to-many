@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+     <!-- Favicon -->
+     <link rel="icon" href="{{ asset('image/logoCortese.jpeg') }}" type="image/x-icon">
+
     {{-- <title>{{ config('app.name', 'Boolpress') }}</title> --}}
     <title>@yield('title', 'Boolpress')</title>
 
